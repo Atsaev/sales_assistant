@@ -3,9 +3,12 @@ import sys
 import warnings
 from pathlib import Path
 
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
 from app.app_gui.main_window import MainWindow
+
+ICON_PATH = Path("app/app_gui/icon.svg")
 
 # faster-whisper не чистит за собой семафоры
 warnings.filterwarnings(
@@ -31,6 +34,7 @@ def main() -> None:
     setup_logging()
 
     app = QApplication(sys.argv)
+    app.setWindowIcon(QIcon(str(ICON_PATH)))
     window = MainWindow()
     window.show()
 
