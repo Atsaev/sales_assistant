@@ -2,6 +2,21 @@
 
 Desktop-приложение для анализа телефонных переговоров в реальном времени. Распознаёт речь, анализирует диалог через LLM и выдаёт подсказки менеджеру.
 
+## Стек
+
+- **Python 3.12** + **PySide6** — desktop приложение
+- **faster-whisper** — распознавание речи в реальном времени
+- **Ollama** — локальная LLM (работает без интернета)
+- **YAML** — гибкая конфигурация без изменения кода
+
+## Системные требования
+
+- macOS / Windows / Linux
+- RAM: минимум 8 GB (рекомендуется 16 GB)
+- Микрофон
+- Ollama установлен локально
+- GPU опционально — ускоряет Whisper и LLM
+
 ## Возможности
 
 - **Распознавание речи** — `faster-whisper` (large-v3-turbo), русский язык
@@ -22,7 +37,7 @@ Desktop-приложение для анализа телефонных пере
 ### 2. Клонирование и запуск
 
 ```sh
-git clone https://github.com/ваш-username/sales-assistant.git
+git clone https://github.com/Atsaev/sales-assistant.git
 cd sales-assistant
 uv sync
 ollama pull gemma4:e4b
@@ -85,6 +100,9 @@ sales-assistant/
                 ↓ suggestion_ready
          MainWindow → SuggestionWidget + LogWidget
 ```
+## Демо
+
+![Как работает приложение ](assets/app_screenshot.png)
 
 ## Подсказки
 
