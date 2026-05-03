@@ -3,14 +3,14 @@ import sys
 import warnings
 from pathlib import Path
 
-# faster-whisper использует multiprocessing, оставляет мусорные семафоры
-warnings.filterwarnings(
-    "ignore", message=".*resource_tracker.*", module="multiprocessing"
-)
-
 from PySide6.QtWidgets import QApplication
 
 from app.app_gui.main_window import MainWindow
+
+# faster-whisper не чистит за собой семафоры
+warnings.filterwarnings(
+    "ignore", message=".*resource_tracker.*", module="multiprocessing"
+)
 
 
 def setup_logging() -> None:

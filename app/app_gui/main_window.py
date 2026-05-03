@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self._load_styles()
         self._load_settings()
 
-    # ── Инициализация ──────────────────────────────────────
+    # Инициализация
 
     def _init_threads(self) -> None:
         self._audio_thread = AudioCaptureThread()
@@ -94,12 +94,11 @@ class MainWindow(QMainWindow):
         if sheets:
             self.setStyleSheet("\n".join(sheets))
 
-    # ── Управление записью ─────────────────────────────────
-
+    # Управление записью
     def _start_recording(self) -> None:
         try:
             self._log_widget.clear()
-            self._log_widget.add_log("🟢 Звонок начат", "system")
+            self._log_widget.add_log("[>] Звонок начат", "system")
 
             self._audio_thread.start()
             self._whisper_thread.start()
@@ -111,7 +110,7 @@ class MainWindow(QMainWindow):
             logger.info("Запись запущена")
         except Exception:
             logger.exception("Ошибка при запуске записи")
-            self._log_widget.add_log("❌ Ошибка запуска записи", "error")
+            self._log_widget.add_log("[X] Ошибка запуска записи", "error")
             self._stop_recording()
 
     def _stop_recording(self) -> None:
@@ -122,13 +121,13 @@ class MainWindow(QMainWindow):
 
             self._control_panel.set_recording(False)
             self._suggestion_widget.set_state("idle")
-            self._log_widget.add_log("🔴 Звонок завершён", "system")
+            self._log_widget.add_log("[X] Звонок завершён", "system")
 
             logger.info("Запись остановлена")
         except Exception:
             logger.exception("Ошибка при остановке записи")
 
-    # ── Обработка результатов ──────────────────────────────
+    # Обработка результатов
 
     def _on_text_recognized(self, text: str) -> None:
         self._log_widget.add_log(text, "speech")
@@ -137,10 +136,10 @@ class MainWindow(QMainWindow):
 
     def _update_suggestion(self, suggestion: str) -> None:
         self._suggestion_widget.set_suggestion(suggestion)
-        self._log_widget.add_log(f"💡 {suggestion}", "suggestion")
-        self._control_panel.set_status_message("💡 Новая подсказка!", 2000)
+        self._log_widget.add_log(f"[!] {suggestion}", "suggestion")
+        self._control_panel.set_status_message("[!] Новая подсказка!", 2000)
 
-    # ── Состояние окна ─────────────────────────────────────
+    # Состояние окна
 
     def _load_settings(self) -> None:
         geometry = QSettings("SalesAssistant", "Settings").value("geometry")

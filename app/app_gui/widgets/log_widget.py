@@ -14,14 +14,13 @@ class LogWidget(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
 
-        # Кнопка очистки
         header = QHBoxLayout()
         from PySide6.QtWidgets import QLabel
 
-        label = QLabel("📝 Расшифровка диалога")
+        label = QLabel("[LOG] Расшифровка диалога")
         label.setObjectName("log_label")
 
-        self.clear_btn = QPushButton("🗑️ Очистить")
+        self.clear_btn = QPushButton("[X] Очистить")
         self.clear_btn.setObjectName("clear_btn")
         self.clear_btn.clicked.connect(self.clear)
 
@@ -29,7 +28,6 @@ class LogWidget(QWidget):
         header.addStretch()
         header.addWidget(self.clear_btn)
 
-        # Текстовое поле
         self.text_edit = QTextEdit()
         self.text_edit.setReadOnly(True)
         self.text_edit.setObjectName("log_text")
@@ -42,17 +40,16 @@ class LogWidget(QWidget):
         timestamp = datetime.now().strftime("%H:%M:%S")
 
         icons = {
-            "speech": "🗣️",
-            "suggestion": "💡",
-            "system": "🖥️",
-            "error": "❌",
-            "info": "ℹ️",
+            "speech": "[>]",
+            "suggestion": "[!]",
+            "system": "[i]",
+            "error": "[X]",
+            "info": "[i]",
         }
 
-        icon = icons.get(log_type, "📝")
+        icon = icons.get(log_type, "[i]")
         self.text_edit.append(f"[{timestamp}] {icon} {text}")
 
-        # Автопрокрутка
         scrollbar = self.text_edit.verticalScrollBar()
         scrollbar.setValue(scrollbar.maximum())
 

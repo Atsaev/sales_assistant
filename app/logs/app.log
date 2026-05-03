@@ -576,3 +576,97 @@ AttributeError: 'TranscriptionInfo' object has no attribute 'no_speech_prob'
 2026-05-03 15:16:44,468 [INFO] faster_whisper: Processing audio with duration 00:08.000
 2026-05-03 15:16:52,483 [INFO] faster_whisper: Processing audio with duration 00:08.000
 2026-05-03 15:16:56,896 [INFO] app.app_gui.main_window: Запись остановлена
+2026-05-03 15:45:11,176 [INFO] app.workers.whisper_worker: Загрузка модели whisper (large-v3-turbo, cpu, int8)...
+2026-05-03 15:45:12,124 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/mobiuslabsgmbh/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 307 Temporary Redirect"
+2026-05-03 15:45:12,324 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/dropbox-dash/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 200 OK"
+2026-05-03 15:45:14,744 [INFO] app.workers.whisper_worker: Модель whisper загружена
+2026-05-03 15:45:22,296 [INFO] app.app_gui.main_window: Запись запущена
+2026-05-03 15:45:30,499 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:45:38,499 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:45:46,489 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:45:54,492 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:02,487 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:10,489 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:18,492 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:26,494 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:34,491 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:42,491 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:50,491 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:46:58,489 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:47:06,493 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:47:14,487 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:47:22,489 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:47:30,493 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 15:47:34,004 [INFO] app.app_gui.main_window: Запись остановлена
+2026-05-03 16:28:41,453 [INFO] app.workers.whisper_worker: Загрузка модели whisper (large-v3-turbo, cpu, int8)...
+2026-05-03 16:28:42,064 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/mobiuslabsgmbh/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 307 Temporary Redirect"
+2026-05-03 16:28:42,231 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/dropbox-dash/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 200 OK"
+2026-05-03 16:28:43,852 [INFO] app.workers.whisper_worker: Модель whisper загружена
+2026-05-03 16:29:38,882 [INFO] app.app_gui.main_window: Запись запущена
+2026-05-03 16:29:46,952 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:29:55,066 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:09,666 [WARNING] app.audio.audio_capture: Аудио переполнено
+2026-05-03 16:30:14,638 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:17,751 [WARNING] app.audio.audio_capture: Аудио переполнено
+2026-05-03 16:30:21,520 [ERROR] app.workers.llm_worker: Ошибка вызова Ollama
+Traceback (most recent call last):
+  File "/Volumes/digma/sales_assistant/app/workers/llm_worker.py", line 57, in _query_ollama
+    with urllib.request.urlopen(req, timeout=ollama["timeout_seconds"]) as resp:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 1373, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/urllib/request.py", line 1348, in do_open
+    r = h.getresponse()
+        ^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/http/client.py", line 1430, in getresponse
+    response.begin()
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/http/client.py", line 331, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/http/client.py", line 292, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/oqp/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: timed out
+2026-05-03 16:30:25,782 [WARNING] app.audio.audio_capture: Аудио переполнено
+2026-05-03 16:30:31,235 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:33,761 [WARNING] app.audio.audio_capture: Аудио переполнено
+2026-05-03 16:30:37,651 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:44,594 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:49,239 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:30:54,546 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:00,148 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:05,761 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:13,760 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:21,761 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:29,774 [WARNING] app.audio.audio_capture: Аудио переполнено
+2026-05-03 16:31:29,781 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:37,768 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:45,773 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:31:53,772 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:01,776 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:09,770 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:17,774 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:25,794 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:33,781 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:41,771 [INFO] faster_whisper: Processing audio with duration 00:08.000
+2026-05-03 16:32:42,155 [INFO] app.app_gui.main_window: Запись остановлена
+2026-05-03 17:25:23,087 [INFO] app.workers.whisper_worker: Загрузка модели whisper (large-v3-turbo, cpu, int8)...
+2026-05-03 17:25:23,709 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/mobiuslabsgmbh/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 307 Temporary Redirect"
+2026-05-03 17:25:23,870 [INFO] httpx: HTTP Request: GET https://huggingface.co/api/models/dropbox-dash/faster-whisper-large-v3-turbo/revision/main "HTTP/1.1 200 OK"
+2026-05-03 17:25:25,655 [INFO] app.workers.whisper_worker: Модель whisper загружена

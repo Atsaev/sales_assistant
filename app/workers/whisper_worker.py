@@ -88,7 +88,7 @@ class WhisperWorker(BaseWorker):
         cleaned = self._clean_text(raw)
         return cleaned if cleaned else None
 
-    # ── Фильтры галлюцинаций ───────────────────────────────
+    # Фильтры галлюцинаций
 
     def _is_hallucination_pattern(self, text: str) -> bool:
         for pattern in self._hallucination_patterns:

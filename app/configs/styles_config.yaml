@@ -7,10 +7,6 @@ styles:
     log_area: "app/app_gui/styles/log_area.qss"
     statusbar: "app/app_gui/styles/statusbar.qss"
 
-  # Тема оформления
-  theme: "light" # light, dark, custom
-
-  # Цветовая схема (может переопределять стили)
   colors:
     primary: "#4CAF50"
     primary_dark: "#45a049"
@@ -22,19 +18,3 @@ styles:
     error: "#f44336"
     warning: "#ff9800"
     info: "#2196f3"
-
-  # Анимации
-  animations:
-    blink_duration_ms: 1000
-    transition_duration_ms: 300
-    hover_effect: true
-
-  # Шрифты
-  fonts:
-    family: "Arial"
-    sizes:
-      small: 10
-      normal: 12
-      large: 14
-      xlarge: 16
-      xxlarge: 20

@@ -20,26 +20,22 @@ class ControlPanel(QWidget):
         self.setup_ui()
 
     def setup_ui(self):
-        """Создаёт интерфейс панели"""
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(10)
 
-        # Кнопка старта
-        self.start_btn = QPushButton("🎙️ Начать звонок")
+        self.start_btn = QPushButton("[>] Начать звонок")
         self.start_btn.setObjectName("start_btn")
         self.start_btn.setMinimumWidth(120)
         self.start_btn.clicked.connect(self._on_start_clicked)
 
-        # Кнопка стопа
-        self.stop_btn = QPushButton("⏹️ Остановить")
+        self.stop_btn = QPushButton("[X] Остановить")
         self.stop_btn.setObjectName("stop_btn")
         self.stop_btn.setMinimumWidth(120)
         self.stop_btn.setEnabled(False)
         self.stop_btn.clicked.connect(self._on_stop_clicked)
 
-        # Индикатор статуса
-        self.status_indicator = QLabel("⚪")
+        self.status_indicator = QLabel("( )")
         self.status_indicator.setObjectName("status_indicator")
         self.status_indicator.setFixedSize(20, 20)
 
@@ -53,21 +49,18 @@ class ControlPanel(QWidget):
         layout.addStretch()
 
     def _on_start_clicked(self):
-        """Обработчик нажатия на старт"""
         self.start_clicked.emit()
 
     def _on_stop_clicked(self):
-        """Обработчик нажатия на стоп"""
         self.stop_clicked.emit()
 
     def set_recording(self, recording: bool):
-        """Устанавливает состояние записи"""
         self.is_recording = recording
         self.start_btn.setEnabled(not recording)
         self.stop_btn.setEnabled(recording)
 
         if recording:
-            self.status_indicator.setText("🔴")
+            self.status_indicator.setText("(*)")
             self.status_label.setText("Идёт запись")
             self.status_label.setProperty("status", "recording")
         else:
@@ -75,26 +68,23 @@ class ControlPanel(QWidget):
             self.status_label.setText("Готов")
             self.status_label.setProperty("status", "ready")
 
-        # Обновляем стили
         self.status_label.style().unpolish(self.status_label)
         self.status_label.style().polish(self.status_label)
 
     def set_processing(self, processing: bool):
-        """Устанавливает состояние обработки"""
         if processing:
-            self.status_indicator.setText("🟡")
+            self.status_indicator.setText("(~)")
             self.status_label.setText("Обработка...")
             self.status_label.setProperty("status", "processing")
         elif self.is_recording:
-            self.status_indicator.setText("🔴")
+            self.status_indicator.setText("(*)")
             self.status_label.setText("Идёт запись")
             self.status_label.setProperty("status", "recording")
         else:
-            self.status_indicator.setText("⚪")
+            self.status_indicator.setText("( )")
             self.status_label.setText("Готов")
             self.status_label.setProperty("status", "ready")
 
-        # Обновляем стили
         self.status_label.style().unpolish(self.status_label)
         self.status_label.style().polish(self.status_label)
 
@@ -105,15 +95,12 @@ class ControlPanel(QWidget):
         QTimer.singleShot(duration_ms, lambda: self.status_label.setText(old_text))
 
     def enable_start(self, enabled: bool = True):
-        """Включает/выключает кнопку старта"""
         self.start_btn.setEnabled(enabled and not self.is_recording)
 
     def enable_stop(self, enabled: bool = True):
-        """Включает/выключает кнопку стопа"""
         self.stop_btn.setEnabled(enabled and self.is_recording)
 
     def get_state(self) -> dict:
-        """Возвращает текущее состояние панели"""
         return {
             "is_recording": self.is_recording,
             "start_enabled": self.start_btn.isEnabled(),

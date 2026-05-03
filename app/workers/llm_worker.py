@@ -36,7 +36,7 @@ class LLMWorker(BaseWorker):
         self._strategy = suggestions_cfg["suggestions"]["strategy"]
         self._system_prompt = prompts_cfg["prompts"]["system_default"]
 
-    # ── Ollama ─────────────────────────────────────────────
+    # Ollama
 
     @staticmethod
     def _query_ollama(messages: list[dict[str, str]]) -> str | None:
@@ -74,7 +74,7 @@ class LLMWorker(BaseWorker):
         ]
         return self._query_ollama(messages)
 
-    # ── Rules ──────────────────────────────────────────────
+    # Rules
 
     def _suggest_via_rules(self, text: str) -> tuple[str, bool]:
         """Возвращает (подсказка, найдена_ли_по_ключевым_словам)."""
@@ -132,7 +132,7 @@ class LLMWorker(BaseWorker):
                     return max(suggestions, key=lambda x: x.get("weight", 0))["text"]
         return None
 
-    # ── Main loop ──────────────────────────────────────────
+    # Основной цикл
 
     def run(self) -> None:
         while self._is_running:
@@ -172,7 +172,7 @@ class LLMWorker(BaseWorker):
 
         return self._suggest_via_rules(text)[0]
 
-    # ── API ────────────────────────────────────────────────
+    # Публичные методы
 
     def add_text(self, text: str) -> None:
         self.conversation_history.append(text)
