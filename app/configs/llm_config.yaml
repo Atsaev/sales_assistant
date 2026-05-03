@@ -28,7 +28,7 @@ local:
 
 analysis:
   context_size: 5
-  min_interval_seconds: 20
+  min_interval_seconds: 10
   debounce_ms: 1000
 
 cache:
