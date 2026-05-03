@@ -85,6 +85,9 @@ sales-assistant/
                 ↓ suggestion_ready
          MainWindow → SuggestionWidget + LogWidget
 ```
+## Демо
+
+![Как работает приложение ](assets/app_screenshot.png)
 
 ## Подсказки
 
