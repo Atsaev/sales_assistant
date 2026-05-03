@@ -25,7 +25,7 @@ Desktop-приложение для анализа телефонных пере
 git clone https://github.com/ваш-username/sales-assistant.git
 cd sales-assistant
 uv sync
-ollama pull llama3.2:3b
+ollama pull gemma4:e4b
 python main.py
 ```
 
