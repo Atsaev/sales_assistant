@@ -1,0 +1,42 @@
+/* suggestion_display.qss - стиль для отображения подсказок */
+
+#suggestion_display {
+    background-color: %PRIMARY_LIGHT%;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid %PRIMARY%;
+    color: %TEXT%;
+}
+
+#suggestion_display[state="idle"] {
+    background-color: #f0f0f0;
+    border-color: #999999;
+}
+
+#suggestion_display[state="listening"] {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+}
+
+#suggestion_display[state="processing"] {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+}
+
+#suggestion_display[state="suggestion"] {
+    background-color: %PRIMARY_LIGHT%;
+    border-color: %PRIMARY%;
+    animation: blink 1s ease-in-out;
+}
+
+@keyframes blink {
+    0% { background-color: %PRIMARY_LIGHT%; }
+    50% { background-color: #c8e6c9; }
+    100% { background-color: %PRIMARY_LIGHT%; }
+}
+
+QLabel#suggestion_label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: %TEXT%;
+}

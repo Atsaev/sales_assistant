@@ -1,0 +1,40 @@
+styles:
+  # Пути к файлам стилей
+  files:
+    main: "app/app_gui/styles/main.qss"
+    buttons: "app/app_gui/styles/buttons.qss"
+    suggestion_display: "app/app_gui/styles/suggestion_display.qss"
+    log_area: "app/app_gui/styles/log_area.qss"
+    statusbar: "app/app_gui/styles/statusbar.qss"
+
+  # Тема оформления
+  theme: "light" # light, dark, custom
+
+  # Цветовая схема (может переопределять стили)
+  colors:
+    primary: "#4CAF50"
+    primary_dark: "#45a049"
+    primary_light: "#e8f5e9"
+    background: "#f5f5f5"
+    text: "#2c3e50"
+    text_light: "#666666"
+    border: "#dddddd"
+    error: "#f44336"
+    warning: "#ff9800"
+    info: "#2196f3"
+
+  # Анимации
+  animations:
+    blink_duration_ms: 1000
+    transition_duration_ms: 300
+    hover_effect: true
+
+  # Шрифты
+  fonts:
+    family: "Arial"
+    sizes:
+      small: 10
+      normal: 12
+      large: 14
+      xlarge: 16
+      xxlarge: 20

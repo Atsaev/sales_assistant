@@ -1,0 +1,29 @@
+/* log_area.qss - стили для области логов */
+
+QTextEdit#log_text {
+    background-color: #fafafa;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 12px;
+    border-radius: 8px;
+    border: 1px solid %BORDER%;
+    padding: 10px;
+    line-height: 1.4;
+}
+
+QTextEdit#log_text:focus {
+    border-color: %PRIMARY%;
+}
+
+QGroupBox#log_group {
+    border: 1px solid %BORDER%;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+QGroupBox#log_group::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+    color: %TEXT%;
+}

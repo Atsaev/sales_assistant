@@ -1,0 +1,65 @@
+/* buttons.qss - стили всех кнопок */
+
+QPushButton {
+    background-color: %PRIMARY%;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 100px;
+}
+
+QPushButton:hover {
+    background-color: %PRIMARY_DARK%;
+}
+
+QPushButton:pressed {
+    background-color: #3d8b40;
+    padding-top: 9px;
+    padding-bottom: 7px;
+}
+
+QPushButton:disabled {
+    background-color: #cccccc;
+    color: #888888;
+}
+
+QPushButton#start_btn {
+    background-color: %PRIMARY%;
+}
+
+QPushButton#start_btn:disabled {
+    background-color: #cccccc;
+}
+
+QPushButton#stop_btn {
+    background-color: #f44336;
+}
+
+QPushButton#stop_btn:hover {
+    background-color: #d32f2f;
+}
+
+QPushButton#stop_btn:disabled {
+    background-color: #ffcdd2;
+    color: #888888;
+}
+
+QPushButton#settings_btn {
+    background-color: #607d8b;
+}
+
+QPushButton#settings_btn:hover {
+    background-color: #455a64;
+}
+
+QPushButton#clear_btn {
+    background-color: #ff9800;
+    min-width: 80px;
+}
+
+QPushButton#clear_btn:hover {
+    background-color: #f57c00;
+}

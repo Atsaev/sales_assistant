@@ -1,0 +1,59 @@
+whisper:
+  model_size: "large-v3-turbo"
+  backend: "faster_whisper"
+  device: "cpu"
+  compute_type: "int8"
+  language: "ru"
+  transcription:
+    beam_size: 5
+    best_of: 5
+    temperature: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+    temperature_increment_on_fallback: 0.2
+
+  # Фильтрация шума и галлюцинаций
+  conditions:
+    min_text_length: 3
+    ignore_filters: true
+    filler_words: ["эээ", "ммм", "типа", "как бы", "ну", "вот", "aaa"]
+
+  # Фильтр галлюцинаций (музыка, шум, повторения)
+  hallucination:
+    # Текстовые паттерны-признаки галлюцинации (регистронезависимо)
+    patterns:
+      - "thank you"
+      - "the music"
+      - "subtitles by"
+      - "♪"
+      - "♫"
+      - "музыка"
+      - "спасибо за просмотр"
+      - "please like"
+      - "subscribe"
+      - "foreign"
+      - "music"
+      - "la la"
+      - "na na"
+      - "you you"
+      - "i love you"
+      - "amazing"
+      - "foreign music"
+      - "foreign language"
+      - "caption"
+      - "редактор субтитров"
+      - "корректор"
+      - "субтитры"
+      - "субтитрами"
+      - "переводчик"
+      - "тик-тик"
+      - "тук-тук"
+    # Порог уверенности: если avg_logprob < этого — галлюцинация
+    max_avg_logprob: -2.5
+    # Если no_speech_prob > этого — шум без речи
+    max_no_speech_prob: 0.8
+    # Если > этого процента слов одинаковые — галлюцинация (0.6 = 60%)
+    max_repeated_word_ratio: 0.6
+
+  cache:
+    enabled: true
+    max_size: 100
+    ttl_seconds: 300

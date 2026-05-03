@@ -1,0 +1,32 @@
+/* statusbar.qss - стили статусной строки */
+
+QStatusBar {
+    background-color: #e0e0e0;
+    color: %TEXT%;
+    padding: 2px 5px;
+}
+
+QStatusBar::item {
+    border: none;
+}
+
+QLabel#status_label {
+    padding: 2px 5px;
+}
+
+QLabel#status_label[status="ready"] {
+    color: %PRIMARY%;
+}
+
+QLabel#status_label[status="recording"] {
+    color: #f44336;
+}
+
+QLabel#status_label[status="processing"] {
+    color: #ff9800;
+}
+
+QLabel#audio_level_label {
+    font-family: monospace;
+    font-weight: bold;
+}

@@ -1,0 +1,19 @@
+audio:
+  sample_rate: 16000
+  channels: 1
+  dtype: "float32"
+  chunk_duration: 8.0
+  device: nulle
+
+buffer:
+  max_chunks: 10
+  overflow_handling: "drop_oldest"
+
+microphone:
+  auto_select: true
+  fallback_device: null
+
+error_handling:
+  retry_on_error: true
+  max_retries: 3
+  retry_delay_ms: 1000

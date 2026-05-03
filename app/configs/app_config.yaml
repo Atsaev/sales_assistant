@@ -1,0 +1,24 @@
+app:
+  name: "Sales Assistant"
+  version: "1.0.0"
+  window:
+    width: 800
+    height: 600
+    min_width: 600
+    min_height: 400
+
+  gui:
+    suggestion_font_size: 16
+    suggestion_min_height: 150
+    log_max_height: 200
+    blink_duration_ms: 1000
+
+  logging:
+    enabled: true
+    level: "INFO"
+    file: "logs/app.log"
+
+  threads:
+    audio_priority: "high"
+    whisper_priority: "normal"
+    llm_priority: "normal"
