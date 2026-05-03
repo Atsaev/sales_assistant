@@ -26,13 +26,6 @@
 #suggestion_display[state="suggestion"] {
     background-color: %PRIMARY_LIGHT%;
     border-color: %PRIMARY%;
-    animation: blink 1s ease-in-out;
-}
-
-@keyframes blink {
-    0% { background-color: %PRIMARY_LIGHT%; }
-    50% { background-color: #c8e6c9; }
-    100% { background-color: %PRIMARY_LIGHT%; }
 }
 
 QLabel#suggestion_label {

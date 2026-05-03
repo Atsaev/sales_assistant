@@ -17,10 +17,10 @@ class LogWidget(QWidget):
         header = QHBoxLayout()
         from PySide6.QtWidgets import QLabel
 
-        label = QLabel("[LOG] Расшифровка диалога")
+        label = QLabel("📝 Расшифровка диалога")
         label.setObjectName("log_label")
 
-        self.clear_btn = QPushButton("[X] Очистить")
+        self.clear_btn = QPushButton("🗑️ Очистить")
         self.clear_btn.setObjectName("clear_btn")
         self.clear_btn.clicked.connect(self.clear)
 
@@ -36,18 +36,17 @@ class LogWidget(QWidget):
         layout.addWidget(self.text_edit)
 
     def add_log(self, text: str, log_type: str = "info"):
-        """Добавляет запись в лог"""
         timestamp = datetime.now().strftime("%H:%M:%S")
 
         icons = {
-            "speech": "[>]",
-            "suggestion": "[!]",
-            "system": "[i]",
-            "error": "[X]",
-            "info": "[i]",
+            "speech": "🗣️",
+            "suggestion": "💡",
+            "system": "🖥️",
+            "error": "❌",
+            "info": "ℹ️",
         }
 
-        icon = icons.get(log_type, "[i]")
+        icon = icons.get(log_type, "📝")
         self.text_edit.append(f"[{timestamp}] {icon} {text}")
 
         scrollbar = self.text_edit.verticalScrollBar()

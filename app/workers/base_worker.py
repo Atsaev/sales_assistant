@@ -21,5 +21,9 @@ class BaseWorker(QThread):
     def stop(self) -> None:
         self._is_running = False
 
+    def wait_for_stop(self, timeout: int = 10000) -> None:
+        if self.isRunning():
+            self.wait(timeout)
+
     def is_running(self) -> bool:
         return self._is_running

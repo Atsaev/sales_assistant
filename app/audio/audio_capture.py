@@ -29,13 +29,18 @@ class AudioCaptureThread(BaseWorker):
                 samplerate=self._sample_rate,
                 channels=1,
                 dtype=np.float32,
+                latency="high",
             ) as stream:
+                buffer = np.array([], dtype=np.float32)
+                step = int(self._sample_rate * 0.5)
                 while self._is_running:
-                    data, overflowed = stream.read(self._chunk_samples)
+                    data, overflowed = stream.read(step)
                     if overflowed:
                         logger.warning("Аудио переполнено")
-                    if len(data) == self._chunk_samples:
-                        self.chunk_ready.emit(data.flatten())
+                    buffer = np.append(buffer, data.flatten())
+                    if len(buffer) >= self._chunk_samples:
+                        self.chunk_ready.emit(buffer[: self._chunk_samples])
+                        buffer = buffer[self._chunk_samples :]
 
         except Exception as e:
             logger.exception("Ошибка при захвате аудио: %s", e)

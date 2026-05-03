@@ -24,18 +24,18 @@ class ControlPanel(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(10)
 
-        self.start_btn = QPushButton("[>] Начать звонок")
+        self.start_btn = QPushButton("🎙️ Начать звонок")
         self.start_btn.setObjectName("start_btn")
         self.start_btn.setMinimumWidth(120)
         self.start_btn.clicked.connect(self._on_start_clicked)
 
-        self.stop_btn = QPushButton("[X] Остановить")
+        self.stop_btn = QPushButton("⏹️ Остановить")
         self.stop_btn.setObjectName("stop_btn")
         self.stop_btn.setMinimumWidth(120)
         self.stop_btn.setEnabled(False)
         self.stop_btn.clicked.connect(self._on_stop_clicked)
 
-        self.status_indicator = QLabel("( )")
+        self.status_indicator = QLabel("⚪")
         self.status_indicator.setObjectName("status_indicator")
         self.status_indicator.setFixedSize(20, 20)
 
@@ -60,7 +60,7 @@ class ControlPanel(QWidget):
         self.stop_btn.setEnabled(recording)
 
         if recording:
-            self.status_indicator.setText("(*)")
+            self.status_indicator.setText("🔴")
             self.status_label.setText("Идёт запись")
             self.status_label.setProperty("status", "recording")
         else:
@@ -73,15 +73,15 @@ class ControlPanel(QWidget):
 
     def set_processing(self, processing: bool):
         if processing:
-            self.status_indicator.setText("(~)")
+            self.status_indicator.setText("🟡")
             self.status_label.setText("Обработка...")
             self.status_label.setProperty("status", "processing")
         elif self.is_recording:
-            self.status_indicator.setText("(*)")
+            self.status_indicator.setText("🔴")
             self.status_label.setText("Идёт запись")
             self.status_label.setProperty("status", "recording")
         else:
-            self.status_indicator.setText("( )")
+            self.status_indicator.setText("⚪")
             self.status_label.setText("Готов")
             self.status_label.setProperty("status", "ready")
 
